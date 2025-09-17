@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SwasthSaathi - Your AI Health Assistant</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Comic Bubbles Background -->
+    <div
+      class="comic-bubble yellow bubble-1 tail-right"
+      style="--rotation: -5deg"
+    >
+      <div class="user-msg">
+        User: "I'm feeling feverish and having rashes."
+      </div>
+      <div class="bot-msg">
+        Bot: "That sounds concerning. It could be dengue. Please consult a
+        doctor immediately."
+      </div>
+    </div>
+
+    <div class="comic-bubble blue bubble-2 tail-left" style="--rotation: 3deg">
+      <div class="user-msg">
+        User: "I have a sore throat and persistent cough."
+      </div>
+      <div class="bot-msg">
+        Bot: "Possible viral infection. Stay hydrated and get rest. See a doctor
+        if symptoms worsen."
+      </div>
+    </div>
+
+    <div
+      class="comic-bubble pink bubble-3 tail-right"
+      style="--rotation: -3deg"
+    >
+      <div class="user-msg">User: "My head hurts constantly for 3 days."</div>
+      <div class="bot-msg">
+        Bot: "Could be tension headache or migraine. Try rest in a dark room and
+        consult if it persists."
+      </div>
+    </div>
+
+    <div class="comic-bubble green bubble-4 tail-left" style="--rotation: 4deg">
+      <div class="user-msg">User: "I feel weak and dizzy often."</div>
+      <div class="bot-msg">
+        Bot: "This might indicate anemia or blood pressure issues. Please get
+        tested."
+      </div>
+    </div>
+
+    <div
+      class="comic-bubble orange bubble-5 tail-right"
+      style="--rotation: -6deg"
+    >
+      <div class="user-msg">User: "I have stomach pain after eating."</div>
+      <div class="bot-msg">
+        Bot: "Could be acidity or gastritis. Avoid spicy food and eat smaller
+        meals."
+      </div>
+    </div>
+
+    <div
+      class="comic-bubble indigo bubble-6 tail-bottom"
+      style="--rotation: 2deg"
+    >
+      <div class="user-msg">User: "I can't sleep well at night anymore."</div>
+      <div class="bot-msg">
+        Bot: "Sleep disorders are common. Try relaxation techniques or consult a
+        sleep specialist."
+      </div>
+    </div>
+
+    <!-- Main Chat Container -->
+    <div class="container">
+      <div class="chat-container">
+        <div class="chat-header">
+          <h1>SwasthSaathi</h1>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+          <!-- Messages will be added here dynamically -->
+        </div>
+
+        <div class="chat-input">
+          <input
+            type="text"
+            id="messageInput"
+            placeholder="Type your health concern..."
+            autocomplete="off"
+            aria-label="Type your message"
+          />
+          <button class="send-btn" id="sendBtn" aria-label="Send message">
+            ✈
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading indicator for API calls -->
+    <div id="loadingIndicator" class="loading-overlay" style="display: none">
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Analyzing your symptoms...</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
