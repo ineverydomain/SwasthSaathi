@@ -586,9 +586,37 @@ class HealthcareChatbot {
     }
 }
 
-// Initialize the chatbot when the page loads
+// Initialize the chatbot and dark mode functionality when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     new HealthcareChatbot();
+
+    // --- DARK MODE LOGIC ---
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    // Function to apply the saved or current theme
+    const applyTheme = (theme) => {
+        if (theme === 'dark') {
+            body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️'; // Sun icon for switching to light
+        } else {
+            body.classList.remove('dark-mode');
+            darkModeToggle.textContent = '🌙'; // Moon icon for switching to dark
+        }
+    };
+
+    // Check localStorage for a saved theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+
+    // Event listener for the toggle button
+    darkModeToggle.addEventListener('click', () => {
+        const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        localStorage.setItem('theme', newTheme);
+        applyTheme(newTheme);
+    });
 });
 
 // Add some utility functions for potential future enhancements
@@ -720,4 +748,15 @@ const HealthcareUtils = {
 // Export for potential use in other modules
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { HealthcareChatbot, HealthcareUtils };
+}
+
+// Scroll to Chat Box
+function scrollToChat() {
+  document.getElementById("chat-box").scrollIntoView({ behavior: "smooth" });
+}
+
+// Insert Quick Symptom into Input
+function insertSymptom(symptom) {
+  document.getElementById("messageInput").value = symptom;
+  document.getElementById("messageInput").focus();
 }
