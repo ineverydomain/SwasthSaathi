@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Comic Bubbles Background -->
+    <!-- Hero Section -->
+    <header class="hero">
+      <h1>🌿 SwasthSaathi</h1>
+      <p>Your 24/7 AI Health Companion</p>
+      <button onclick="scrollToChat()">Start Chat</button>
+    </header>
+
+    <!-- Comic Bubbles (kept as is, just styled better) -->
     <div
       class="comic-bubble yellow bubble-1 tail-right"
       style="--rotation: -5deg"
@@ -72,16 +79,64 @@
       </div>
     </div>
 
-    <!-- Main Chat Container -->
-    <div class="container">
+    <!-- Features Section -->
+    <section class="features">
+      <h2>How it Works</h2>
+      <div class="workflow">
+        <div class="workflow-step">
+          <h3>📝 User Input</h3>
+          <p>
+            Users interact via <strong>SMS, Voice, WhatsApp, or Web</strong>.
+          </p>
+        </div>
+        <div class="workflow-arrow">➡️</div>
+        <div class="workflow-step">
+          <h3>🌐 Input Handling</h3>
+          <p>Through <strong>SMS Gateway / Translation</strong> services.</p>
+        </div>
+        <div class="workflow-arrow">➡️</div>
+        <div class="workflow-step">
+          <h3>⚙️ Core Processing</h3>
+          <p>
+            <strong>NLP + Knowledge Base + Govt. APIs + Decision Logic</strong>
+            analyze symptoms and data.
+          </p>
+        </div>
+        <div class="workflow-arrow">➡️</div>
+        <div class="workflow-step">
+          <h3>📤 Output to User</h3>
+          <p>
+            Localized response via <strong>Text / TTS</strong> in SMS, Voice,
+            WhatsApp, or Web format.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Symptom Buttons -->
+    <section class="quick-symptoms">
+      <h2>Common Symptoms</h2>
+      <button onclick="insertSymptom('Fever')">Fever</button>
+      <button onclick="insertSymptom('Headache')">Headache</button>
+      <button onclick="insertSymptom('Cough')">Cough</button>
+      <button onclick="insertSymptom('Stomach Pain')">Stomach Pain</button>
+    </section>
+
+    <!-- Chatbot -->
+    <div class="container" id="chat-box">
       <div class="chat-container">
         <div class="chat-header">
           <h1>SwasthSaathi</h1>
+          <button
+            id="darkModeToggle"
+            class="dark-mode-toggle"
+            aria-label="Toggle dark mode"
+          >
+            🌙
+          </button>
         </div>
 
-        <div class="chat-messages" id="chatMessages">
-          <!-- Messages will be added here dynamically -->
-        </div>
+        <div class="chat-messages" id="chatMessages"></div>
 
         <div class="chat-input">
           <input
@@ -98,13 +153,21 @@
       </div>
     </div>
 
-    <!-- Loading indicator for API calls -->
+    <!-- Loader -->
     <div id="loadingIndicator" class="loading-overlay" style="display: none">
       <div class="loading-spinner">
         <div class="spinner"></div>
         <p>Analyzing your symptoms...</p>
       </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        ⚠️ Disclaimer: This tool provides general health information. For
+        emergencies, please consult a doctor immediately.
+      </p>
+    </footer>
 
     <script src="script.js"></script>
   </body>
